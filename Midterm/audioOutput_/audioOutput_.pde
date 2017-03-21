@@ -38,14 +38,14 @@ void setup(){
   /*minim*/
   minim = new Minim(this);
   
-   /* 
+    
   sound1=minim.loadFile("union.mp3", 640);
   sound1.loop();
   sound2=minim.loadFile("house.mp3");
   sound2.loop();
   sound3=minim.loadFile("subwayperformers.mp3");
   sound3.loop();
-  sound4=minim.loadFile("Campground.mp3");
+  /* sound4=minim.loadFile("Campground.mp3");
   sound4.loop();
   sound5=minim.loadFile("Cricket.mp3");
   sound5.loop();
@@ -77,12 +77,12 @@ void draw(){
  sound3.loop();
 }
   else {
-    sound4=minim.loadFile("Campground.mp3");
-sound4.loop();
+    //sound4=minim.loadFile("Campground.mp3");
+//sound4.loop();
   }
   
     if (fifthVal == 0){
-   sound5.loop();
+  // sound5.loop();
 }
   else {
     noTint();
