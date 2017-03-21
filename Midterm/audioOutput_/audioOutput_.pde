@@ -34,20 +34,22 @@ int[] values = new int[3];
 
 void setup(){
   size(640,360);
+  //final String filePath = dataPath("sound_voices.wav");
   /*minim*/
   minim = new Minim(this);
   
-  sound1=minim.loadFile("Union.m4a");
+   /* 
+  sound1=minim.loadFile("union.mp3", 640);
   sound1.loop();
-  sound2=minim.loadFile("House.m4a");
+  sound2=minim.loadFile("house.mp3");
   sound2.loop();
-  sound3=minim.loadFile("SubwayPerformers.m4a");
+  sound3=minim.loadFile("subwayperformers.mp3");
   sound3.loop();
   sound4=minim.loadFile("Campground.mp3");
   sound4.loop();
   sound5=minim.loadFile("Cricket.mp3");
   sound5.loop();
-
+*/
   //println(Serial.list());
   
   //String portName = Serial.list()[1];
@@ -63,11 +65,11 @@ void draw(){
   //println(secondVal);
   //NADA
   if (secondVal == 0){
-   sound1=minim.loadFile("Union.m4a");
+   sound1=minim.loadFile("union.mp3");
    sound1.play();
 }
   else { 
-    sound2=minim.loadFile("House.m4a");
+    sound2=minim.loadFile("house.mp3");
       sound2.loop();
   }
   
