@@ -27,6 +27,7 @@ AudioPlayer sound2;
 AudioPlayer sound3;
 AudioPlayer sound4;
 AudioPlayer sound5;
+AudioPlayer sound6;
 
 Serial myPort;
 int[] values = new int[3]; 
@@ -39,17 +40,18 @@ void setup(){
   minim = new Minim(this);
   
     
-  sound1=minim.loadFile("union.mp3", 640);
-  sound1.loop();
-  sound2=minim.loadFile("house.mp3");
-  sound2.loop();
-  sound3=minim.loadFile("subwayperformers.mp3");
-  sound3.loop();
-  /* sound4=minim.loadFile("Campground.mp3");
-  sound4.loop();
-  sound5=minim.loadFile("Cricket.mp3");
-  sound5.loop();
-*/
+  sound1=minim.loadFile("union.wav");
+  //sound1.loop();
+  sound2=minim.loadFile("house.wav");
+  //sound2.loop();
+  sound3=minim.loadFile("subwayperformers.wav");
+  //sound3.loop();
+  sound4=minim.loadFile("nightwaves.wav");
+  //sound4.loop();
+  sound5=minim.loadFile("noname.wav");
+  //sound5.loop();
+  sound6=minim.loadFile("cricket.wav");
+
   //println(Serial.list());
   
   //String portName = Serial.list()[1];
@@ -64,35 +66,38 @@ void draw(){
   
   //println(secondVal);
   //NADA
-  if (secondVal == 0){
-   sound1=minim.loadFile("union.mp3");
-   sound1.play();
+  
+  if (secondVal == 1){
+   sound3.play();
 }
   else { 
-    sound2=minim.loadFile("house.mp3");
-      sound2.loop();
+      sound4.play();
   }
   
-    if (thirdVal == 0){
- sound3.loop();
-}
-  else {
-    //sound4=minim.loadFile("Campground.mp3");
-//sound4.loop();
+    if (thirdVal == 1){
+    sound1.pause(); 
   }
   
-    if (fifthVal == 0){
-  // sound5.loop();
+    if (fourthVal == 1){
+   sound2.loop();
+ sound2.rewind();
+}
+
+ if (fifthVal == 1){
+   sound5.play();
+}
+  
+   if (sixthVal == 1){
+   sound6.play();
+}
+ 
+  if (seventhVal == 1){
+   sound5.play();
 }
   else {
-    noTint();
-  } 
-   if (sixthVal == 0){
-   tint(random(255),random(255),random(255));
-}
-  else {
-    noTint();
-  } 
+   sound5.pause(); 
+  }
+ 
 }
 
 void serialEvent(Serial myPort) {
