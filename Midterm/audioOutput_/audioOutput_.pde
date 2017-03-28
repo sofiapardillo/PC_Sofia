@@ -76,19 +76,21 @@ void draw(){
   }
   
     if (thirdVal == 1){
-    sound1.pause(); 
+    sound1.pause();
+    
   }
   
     if (fourthVal == 1){
    sound2.loop();
  sound2.rewind();
+ sound5.play();
 }
 else {
   sound6.play();
 }
 
  if (fifthVal == 1){
-   sound5.play();
+   
    sound6.pause();
 }
 
