@@ -27,7 +27,6 @@ AudioPlayer sound2;
 AudioPlayer sound3;
 AudioPlayer sound4;
 AudioPlayer sound5;
-AudioPlayer sound6;
 
 Serial myPort;
 int[] values = new int[3]; 
@@ -50,7 +49,6 @@ void setup(){
   //sound4.loop();
   sound5=minim.loadFile("noname.wav");
   //sound5.loop();
-  sound6=minim.loadFile("cricket.wav");
 
   //println(Serial.list());
   
@@ -66,7 +64,18 @@ void draw(){
   
   //println(secondVal);
   //NADA
-  
+  if (zeroVal == 1){
+ sound1.loop();
+}
+  else{
+   sound1.pause(); 
+  }
+    if (firstVal == 1){
+ sound2.loop();
+ sound2.rewind();
+}
+
+
   if (secondVal == 1){
    sound3.play();
 }
@@ -87,16 +96,6 @@ void draw(){
    sound5.play();
 }
   
-   if (sixthVal == 1){
-   sound6.play();
-}
- 
-  if (seventhVal == 1){
-   sound5.play();
-}
-  else {
-   sound5.pause(); 
-  }
  
 }
 
