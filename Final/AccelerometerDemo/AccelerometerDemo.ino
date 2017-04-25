@@ -103,9 +103,10 @@ Serial.write(g.gyro.z);
 
 }
 
-void establishContact() {
+/* void establishContact() {
   while (Serial.available() <= 0) {
     Serial.print('A');   // send a capital A
     delay(300);
   }
 }
+*/
