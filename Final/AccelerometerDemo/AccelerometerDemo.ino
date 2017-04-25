@@ -16,6 +16,9 @@ Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1();
 // Or hardware SPI! In this case, only CS pins are passed in
 //Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1(LSM9DS1_XGCS, LSM9DS1_MCS);
 
+int xaValue;
+int yaValue;
+int zaValue;
 
 void setupSensor()
 {
@@ -46,7 +49,7 @@ void setup()
     delay(1); // will pause Zero, Leonardo, etc until serial console opens
   }
   
-  Serial.println("LSM9DS1 data read demo");
+ Serial.println("LSM9DS1 data read demo");
   
   // Try to initialise and warn if we couldn't detect the chip
   if (!lsm.begin())
@@ -58,6 +61,7 @@ void setup()
 
   // helper to just set the default scaling we want, see above!
   setupSensor();
+
 }
 
 void loop() 
@@ -69,17 +73,39 @@ void loop()
 
   lsm.getEvent(&a, &m, &g, &temp); 
 
-  Serial.print("Accel X: "); Serial.print(a.acceleration.x); Serial.print(" m/s^2");
-  Serial.print("\tY: "); Serial.print(a.acceleration.y);     Serial.print(" m/s^2 ");
-  Serial.print("\tZ: "); Serial.print(a.acceleration.z);     Serial.println(" m/s^2 ");
+ xaValue = int (a.acceleration.x);
+ yaValue = int (a.acceleration.y);
+ zaValue = int (a.acceleration.z);
+ 
 
-  Serial.print("Mag X: "); Serial.print(m.magnetic.x);   Serial.print(" gauss");
-  Serial.print("\tY: "); Serial.print(m.magnetic.y);     Serial.print(" gauss");
-  Serial.print("\tZ: "); Serial.print(m.magnetic.z);     Serial.println(" gauss");
+ Serial.write(xaValue);
+ Serial.write(yaValue);
+ Serial.write(zaValue);
+ 
+/* 
+Serial.write(a.acceleration.x); 
+Serial.write(a.acceleration.y);    
+Serial.write(a.acceleration.z);
 
-  Serial.print("Gyro X: "); Serial.print(g.gyro.x);   Serial.print(" dps");
-  Serial.print("\tY: "); Serial.print(g.gyro.y);      Serial.print(" dps");
-  Serial.print("\tZ: "); Serial.print(g.gyro.z);      Serial.println(" dps");
+
+ *  
+Serial.write(m.magnetic.x);  
+Serial.write(m.magnetic.y); 
+Serial.write(m.magnetic.z); 
+
+Serial.write(g.gyro.x);   
+Serial.write(g.gyro.y);  
+Serial.write(g.gyro.z);  
+ 
+ */
 
   delay(200);
+
+}
+
+void establishContact() {
+  while (Serial.available() <= 0) {
+    Serial.print('A');   // send a capital A
+    delay(300);
+  }
 }

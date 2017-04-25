@@ -9,12 +9,18 @@ float directionX;
 float directionY;
 float speed = 2;
 
+float firstVal;
+float secondVal;
+float thirdVal;
+int[] values = new int[3]; 
+
 First Firstone;
 
 void setup(){
   
-  String portName = Serial.list()[1];
-  myPort = new Serial(this, portName, 9600);
+  //String portName = Serial.list()[0];
+  myPort = new Serial(this, Serial.list()[1], 9600);
+  myPort.bufferUntil('\n');
   size(500,500);
   smooth();
   
@@ -25,7 +31,7 @@ void setup(){
 void draw(){
   background(255);
   
-  if (myPort.available() > 0){
+  if (myPort.available() > -20){
     val = myPort.readStringUntil('\n');
   }
   println(val);
@@ -34,3 +40,16 @@ void draw(){
   Firstone.move2();
    
 }
+
+void serialEvent(Serial myPort) {
+   String inString = myPort.readStringUntil('\n');
+    if (inString != null) {
+    inString = trim(inString);
+    float[] values = float(split(inString, ","));
+   
+   if (values.length >= 3){
+     firstVal= values[0];
+     secondVal = values[1];
+     thirdVal = values[2];
+   }
+ }}
