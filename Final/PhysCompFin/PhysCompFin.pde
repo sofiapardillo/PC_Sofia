@@ -9,9 +9,9 @@ float directionX;
 float directionY;
 float speed = 2;
 
-float firstVal;
-float secondVal;
-float thirdVal;
+int firstVal;
+int secondVal;
+int thirdVal;
 int[] values = new int[3]; 
 
 First Firstone;
@@ -31,10 +31,7 @@ void setup(){
 void draw(){
   background(255);
   
-  if (myPort.available() > -20){
-    val = myPort.readStringUntil('\n');
-  }
-  println(val);
+  println(firstVal);
   Firstone.display();
   Firstone.move1();
   Firstone.move2();
@@ -45,7 +42,7 @@ void serialEvent(Serial myPort) {
    String inString = myPort.readStringUntil('\n');
     if (inString != null) {
     inString = trim(inString);
-    float[] values = float(split(inString, ","));
+    int[] values = int(split(inString, ","));
    
    if (values.length >= 3){
      firstVal= values[0];

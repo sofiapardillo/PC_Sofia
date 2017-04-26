@@ -73,13 +73,15 @@ void loop()
 
   lsm.getEvent(&a, &m, &g, &temp); 
 
- xaValue = int (a.acceleration.x);
- yaValue = int (a.acceleration.y);
- zaValue = int (a.acceleration.z);
+ xaValue = byte (a.acceleration.x);
+ yaValue = byte (a.acceleration.y);
+ zaValue = byte (a.acceleration.z);
  
 
  Serial.write(xaValue);
+ //Serial.print(",");
  Serial.write(yaValue);
+ //Serial.print(",");
  Serial.write(zaValue);
  
 /* 
