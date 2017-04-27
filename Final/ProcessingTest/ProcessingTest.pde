@@ -1,6 +1,8 @@
 import processing.serial.*;
 
+String serial;
 Serial myPort;
+
 
  void setup(){
   
@@ -14,4 +16,14 @@ Serial myPort;
  
  void draw(){
    
+   while(myPort.available() > 0){
+     serial = myPort.readStringUntil('\n');
+   }
+ if (serial !=null){
+   String[] a =split(serial, ',');
+   println(a[0]);
+   println(a[1]);
+   println(a[2]);
+   
+ }
  }

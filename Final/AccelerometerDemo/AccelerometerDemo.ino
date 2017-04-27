@@ -16,9 +16,9 @@ Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1();
 // Or hardware SPI! In this case, only CS pins are passed in
 //Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1(LSM9DS1_XGCS, LSM9DS1_MCS);
 
-int xaValue;
-int yaValue;
-int zaValue;
+byte aValue;
+byte mValue;
+byte gValue;
 
 void setupSensor()
 {
@@ -73,16 +73,18 @@ void loop()
 
   lsm.getEvent(&a, &m, &g, &temp); 
 
- xaValue = byte (a.acceleration.x);
- yaValue = byte (a.acceleration.y);
- zaValue = byte (a.acceleration.z);
+ aValue = byte (a.acceleration.x);
+ mValue = byte (m.magnetic.x);
+ gValue = byte (a.acceleration.z);
  
+Serial.println(1);
 
- Serial.write(xaValue);
- //Serial.print(",");
- Serial.write(yaValue);
- //Serial.print(",");
- Serial.write(zaValue);
+
+// Serial.print(aValue);
+// Serial.print(",");
+// Serial.print(mValue);
+// Serial.print(",");
+// Serial.println(gValue);
  
 /* 
 Serial.write(a.acceleration.x); 
