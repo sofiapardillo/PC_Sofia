@@ -20,6 +20,10 @@ byte aValue;
 byte mValue;
 byte gValue;
 
+byte a1value;
+byte a2value;
+byte a3value;
+
 void setupSensor()
 {
   // 1.) Set the accelerometer range
@@ -73,17 +77,20 @@ void loop()
 
   lsm.getEvent(&a, &m, &g, &temp); 
 
- aValue = byte (a.acceleration.x);
+ a1value = byte (a.acceleration.x);
+ a2value = byte (a.acceleration.y);
+ a3value = byte (a.acceleration.z);
+ 
  mValue = byte (m.magnetic.x);
  gValue = byte (g.gyro.x);
  
 //Serial.println(1);
 
- Serial.print(aValue);
+ Serial.print(a1value);
  Serial.print(",");
- Serial.print(mValue);
+ Serial.print(a2value);
  Serial.print(",");
- Serial.println(gValue);
+ Serial.println(a3value);
  
 /* 
 Serial.write(a.acceleration.x); 

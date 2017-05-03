@@ -18,6 +18,10 @@ int magno = 0;   // second analog sensor
 int gyro = 0;    // digital sensor
 int inByte = 0;         // incoming serial byte
 
+int a1value;
+int a2value;
+int a3value;
+
 void setupSensor()
 {
   //accel
@@ -56,12 +60,11 @@ void loop() {
     inByte = Serial.read();
   }
 
-  accelerometer = int (a.acceleration.x);
+  a1value = int (a.acceleration.x);
 
-  magno = int (m.magnetic.x);
+  a2value = int (a.acceleration.y);
 
-  gyro = int (g.gyro.x);
-
+  a3value = int (a.acceleration.z);
   /*
     // print sensor values:
     Serial.print(accelerometer);
@@ -73,9 +76,9 @@ void loop() {
 
 
   // write sensor values:
-  Serial.write(accelerometer);
-  Serial.write(magno);
-  Serial.write(gyro);
+  Serial.write(a1value);
+  Serial.write(a2value);
+  Serial.write(a3value);
 
   delay(200);
 
