@@ -1,5 +1,5 @@
 //AB modification. Accel sends 3 values to serial
-
+//SP Accel sends 6 values to serial
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_LSM9DS1.h>

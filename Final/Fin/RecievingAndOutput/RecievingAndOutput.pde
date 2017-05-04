@@ -37,7 +37,7 @@ int   FirstVal;
 
 void setup() {
   
-    size(500,500);
+    size(850,750);
   smooth();
   
 
@@ -82,11 +82,11 @@ void draw() {
       image(picture4,70,400,425,250);
       image(picture5,val6,200,150,225);
       //image(picture6,350,500,150,225);
-      image(picture7,10,180,425,250);
+      image(picture7,10,val2,425,250);
       
      tint(255, val3);
      
-      image(picture8,200,260,150,225);
+      image(picture8,val1,260,150,225);
       image(picture9,300,val4,350,250);
       image(picture10,60,80,150,225);
       
@@ -99,9 +99,9 @@ void draw() {
       
      
     tint(255, val5);
-     image(picture14,550,420,425,250);
-      image(picture15,115,15,425,250);
-      image(picture16,20,300,150,225);
+     image(picture14,550,val1,425,250);
+      image(picture15,val4,15,425,250);
+      image(picture16,700,500,150,225);
       
 
   
